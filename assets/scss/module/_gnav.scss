@@ -1,0 +1,238 @@
+// ====================================
+// グローバルナビ、ハンバーガーメニュー
+// ====================================
+
+// =========================================================================================
+// CSS input labelで実装
+// ------- HTML ----------------------------------------------------------------------------
+// <input class="checked" type="checkbox" id="checked">
+// <label class="menu-btn" for="checked">
+//   <span class="menu-btn__bar"></span>
+// </label>
+// <nav class="global-nav">
+//   <ul class="global-nav__list">
+//     <li class="global-nav__menu"><a href="#" class="global-nav__link">HOME</a></li>
+//     <li class="global-nav__menu"><a href="#" class="global-nav__link">ABOUT</a></li>
+//     <li class="global-nav__menu"><a href="#" class="global-nav__link">NEWS</a></li>
+//     <li class="global-nav__menu"><a href="#" class="global-nav__link">CONTACT</a></li>
+//   </ul>
+// </nav>
+// ------------------------------------------------------------------------------------------
+
+// .global-nav {
+//   padding: 32px;
+//   width: auto;
+//   height: 100vh;
+//   transform: translateX(-100%);
+//   transition: .4s;
+//   background-color: rgba($color-black, .9);
+//   @include tab {
+//     padding: 16px 32px;
+//     height: auto;
+//     transform: translateX(0);
+//   }
+//   &__list {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     align-items: center;
+//     height: 200px;
+//     @include tab {
+//       flex-direction: row;
+//       justify-content: flex-end;
+//       height: auto;
+//     }
+//   }
+//   &__menu {
+//     @include tab {
+//       margin-left: 32px;
+//     }
+//   }
+//   &__link {
+//     color: $color-white;
+//   }
+// }
+
+// .menu-btn {
+//   $width: 40px;
+//   $height: 40px;
+//   $bar-height: 4px;
+//   $space: ($height - ($bar-height * 3)) / 2;
+//   position: fixed;
+//   top: 8px;
+//   right: 8px;
+//   z-index: 10;
+//   display: flex;
+//   align-items: center;
+//   width: $width;
+//   height: $height;
+//   @include tab {
+//     display: none;
+//   }
+//   &__bar {
+//     position: relative;
+//     display: block;
+//     width: $width;
+//     height: $bar-height;
+//     background-color: $color-black;
+//     transition: 0.2s;
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       bottom: $space + $bar-height;
+//       width: $width;
+//       height: $bar-height;
+//       background-color: $color-black;
+//       transition: 0.4s;
+//     }
+//     &::after {
+//       content: '';
+//       position: absolute;
+//       top: $space + $bar-height;
+//       width: $width;
+//       height: $bar-height;
+//       background-color: $color-black;
+//       transition: 0.4s;
+//     }
+//   }
+// }
+
+// /* labelで制御 */
+// .checked {
+//   display: none;
+// }
+
+// .checked:checked {
+//   & ~ .global-nav {
+//     transform: translateX(0);
+//   }
+
+//   & + .menu-btn .menu-btn__bar {
+//     width: 0;
+//     &::before {
+//       bottom: 0;
+//       transform: rotate(45deg);
+//       background-color: $color-white;
+
+//     }
+//     &::after {
+//       top: 0;
+//       transform: rotate(-45deg);
+//       background-color: $color-white;
+//     }
+//   }
+// }
+// =========================================================================================
+
+// jQueryで実装
+// ------- HTML ----------------------------------------------------------------------------
+// <div class="menu-btn" id="menu-btn">
+//   <span class="menu-btn__bar"></span>
+// </div>
+// <nav class="global-nav">
+//   <ul class="global-nav__list">
+//     <li class="global-nav__menu"><a href="#" class="global-nav__link">HOME</a></li>
+//     <li class="global-nav__menu"><a href="#" class="global-nav__link">ABOUT</a></li>
+//     <li class="global-nav__menu"><a href="#" class="global-nav__link">NEWS</a></li>
+//     <li class="global-nav__menu"><a href="#" class="global-nav__link">CONTACT</a></li>
+//   </ul>
+// </nav>
+// ------------------------------------------------------------------------------------------
+
+.global-nav {
+  padding: 32px;
+  width: auto;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: 0.4s;
+  background-color: rgba($color-black, 0.9);
+  @include tab {
+    padding: 16px 32px;
+    height: auto;
+    transform: translateX(0);
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    @include tab {
+      flex-direction: row;
+      justify-content: flex-end;
+      height: auto;
+    }
+  }
+  &__menu {
+    @include tab {
+      margin-left: 32px;
+    }
+  }
+  &__link {
+    color: $color-white;
+  }
+}
+
+.menu-btn {
+  $width: 40px;
+  $height: 40px;
+  $bar-height: 4px;
+  $space: ($height - ($bar-height * 3)) / 2;
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  width: $width;
+  height: $height;
+  @include tab {
+    display: none;
+  }
+  &__bar {
+    position: relative;
+    display: block;
+    width: $width;
+    height: $bar-height;
+    background-color: $color-black;
+    transition: 0.2s;
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: $space + $bar-height;
+      width: $width;
+      height: $bar-height;
+      background-color: $color-black;
+      transition: 0.4s;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: $space + $bar-height;
+      width: $width;
+      height: $bar-height;
+      background-color: $color-black;
+      transition: 0.4s;
+    }
+  }
+}
+
+.is-active.global-nav {
+  transform: translateX(0);
+}
+
+.is-active.menu-btn {
+  .menu-btn__bar {
+    width: 0;
+    &::before {
+      bottom: 0;
+      transform: rotate(45deg);
+      background-color: $color-white;
+    }
+    &::after {
+      top: 0;
+      transform: rotate(-45deg);
+      background-color: $color-white;
+    }
+  }
+}

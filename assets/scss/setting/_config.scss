@@ -1,0 +1,100 @@
+// ==============================
+// 基礎設定
+// １color
+// ２font
+// ３レスポンシブ
+// ==============================
+
+// ------------------------------
+// １color
+// ------------------------------
+$color-black: #333333;
+$color-white: #ffffff;
+
+$font-color: #333333; //基本のfont-color
+
+// ------------------------------
+// ２font
+// ------------------------------
+//font-familyの基本をここで指定
+$font-f-main: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
+Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+
+// 全てのタグに適用
+* {
+  color: $font-color;
+  font-size: 16px; //基本サイズ
+}
+
+// ------------------------------
+// ３レスポンシブ
+// ------------------------------
+//スマホファースト
+$tab: 361px; //以上でタブレット
+$pc: 769px; //以上でPC
+$pc-l: 1367px; //以上で大サイズPC
+
+@mixin tab {
+  @media screen and (min-width: $tab){
+    @content;
+  }
+}
+@mixin pc {
+  @media screen and (min-width: $pc){
+    @content;
+  }
+}
+@mixin pc-l {
+  @media screen and (min-width: $pc-l){
+    @content;
+  }
+}
+
+.container {
+  width: clamp(320px,96%, $tab);
+  @include tab {
+    width: clamp($tab, 90%, $pc);
+  }
+  @include pc {
+    width: clamp($pc, 80%, $pc-l);
+  }
+  @include pc-l {
+    max-width: 1224px;
+  }
+}
+
+//PCファースト（1920pxまで検討）
+// $pc: 1366px; //以下でpc
+// $tab: 768px; //以下でtab
+// $sm: 360px; //以下でsm
+
+// @mixin pc {
+//   @media screen and (max-width: $pc){
+//     @content;
+//   }
+// }
+// @mixin tab {
+//   @media screen and (max-width: $tab){
+//     @content;
+//   }
+// }
+// @mixin sm {
+//   @media screen and (max-width: $sm){
+//     @content;
+//   }
+// }
+
+// .container {
+//   width: clamp(320px,80%, 1244px);
+//   @include pc {
+//     width: clamp($tab, 80%, $pc);
+//   }
+//   @include tab {
+//     width: clamp($sm, 80%, $tab);
+//   }
+//   @include sm {
+//     width: clamp(320px, 96%, $sm);
+//   }
+  
+// }
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og:サイトのURL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>サイトタイトル</title>
+    <meta
+      name="description"
+      content="ここにサイトの説明文が入ります（50文字以内）"
+    />
+
+    <!-- OGP -->
+    <meta property="og:site_name" content="サイト名" />
+    <meta property="og:url" content="サイトのURL" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="概要" />
+    <meta property="og:image" content="画像の絶対パス" />
+    <!-- website /blog 下層→article -->
+    <meta property="og:title" content=" ページの タイトル" />
+    <!-- twitter:card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ユーザー名">
+    <meta property="og:url" content="記事のURL">
+    <meta property="og:description" content="記事の要約">
+    <meta property="og:image" content="画像のURL">
+    <!-- IEレンダリング -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+
+    <!-- icon,faviconいずれかまたは複数を使う -->
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <!-- .ico -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="./assets/images/favicon/favicon.png"
+    />
+    <!-- .png -->
+    <link rel="apple-touch-icon" href="./assets/images/favicon/favicon.png" />
+    <!-- style読み込み -->
+    <link rel="stylesheet" href="./assets/scss/style.css" />
+
+    <!-- ここにjQueryのCDN読み込み -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.js"
+      integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header"></header>
+
+    <main class="main"></main>
+
+    <footer class="footer"></footer>
+
+    <!-- jsファイル読み込み -->
+    <script src="./assets/js/main.js"></script>
+
+    <!-- JSが動作しない場合 -->
+    <noscript> </noscript>
+  </body>
+</html>

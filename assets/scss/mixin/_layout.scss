@@ -1,0 +1,28 @@
+// =============================
+// レイアウトに関するmixin
+// =============================
+
+// flexの横並び数と縦横の余白をしているす場合
+@mixin l-flex-wrap($num: 4, $mr: 40px, $mt: 40px){
+  $margin-num: $num - 1;
+  $row-num: $num + 1;
+  display: flex;
+  flex-wrap: wrap;
+
+  &>* {
+    width: calc((100% - #{$mr} * #{$margin-num}) / #{$num});
+    &:not(:nth-child(#{$num}n)){
+      margin-right: $mr;
+    }
+    &:nth-child(n + #{$row-num}){
+      margin-top: $mt;
+    }
+  }
+}
+
+// gridでコンテンツアイテムの横幅を指定して横並びする場合
+@mixin l-grid($colum:4, $gap: 40px, $width: 1fr){
+  display: grid;
+  grid-template-columns: repeat($colum, $width);
+  gap: $gap;
+}
