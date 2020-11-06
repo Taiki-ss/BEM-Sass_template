@@ -14,6 +14,9 @@
     &:not(:nth-child(#{$num}n)){
       margin-right: $mr;
     }
+    &:nth-child(-n + #{$num}){
+      margin-top: 0;
+    }
     &:nth-child(n + #{$row-num}){
       margin-top: $mt;
     }
