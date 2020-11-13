@@ -51,7 +51,8 @@ $pc-l: 1367px; //以上で大サイズPC
 }
 
 .container {
-  width: clamp(320px,96%, $tab);
+  width: clamp(280px,96%, $tab);
+  padding: 0 20px;
   @include tab {
     width: clamp($tab, 90%, $pc);
   }
@@ -93,7 +94,8 @@ $pc-l: 1367px; //以上で大サイズPC
 //     width: clamp($sm, 80%, $tab);
 //   }
 //   @include sm {
-//     width: clamp(320px, 96%, $sm);
+//     width: clamp(280px, 96%, $sm);
+//     padding: 0 20px;
 //   }
   
 // }
