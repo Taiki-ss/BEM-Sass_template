@@ -13,3 +13,7 @@
 
 ### ２、HTMLについて
 ・metaタグにOGP、twitter card、IEレンダリング、style、jQueryCDN読み込み済み
+
+### 3、scssコンパイルについて  
+・package.jsonにコンパイルのコマンド記載
+
