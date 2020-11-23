@@ -6,12 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile-sass": "node-sass --include-path scss ./assets/scss/style.scss ./assets/css/style.css",
-    "watch": "node-sass --include-path scss ./assets/scss/style.scss ./assets/css/style.css -w",
-    "build": "node-sass --include-path scss ./assets/scss/style.scss ./assets/css/style.css --output-style compressed"
+    "watch": "node-sass --include-path scss ./assets/scss/style.scss ./assets/css/style.css -w & postcss ./assets/css/style.css -u autoprefixer -o ./assets/css/style.css -w",
+    "build": "node-sass --include-path css ./assets/css/style.css ./assets/css/style.css --output-style compressed",
+    "autoprefix": "postcss ./css/style.css -u autoprefixer -o ./css/style.css -w"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-sass": "^5.0.0"
-  }
+    "autoprefixer": "^10.0.2",
+    "node-sass": "^5.0.0",
+    "postcss": "^8.1.9",
+    "postcss-cli": "^8.3.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1% in JP"
+  ]
 }
