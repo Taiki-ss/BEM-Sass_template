@@ -8,15 +8,20 @@
     "compile-sass": "node-sass --include-path scss ./assets/scss/style.scss ./assets/css/style.css",
     "watch": "node-sass --include-path scss ./assets/scss/style.scss ./assets/css/style.css -w & postcss ./assets/css/style.css -u autoprefixer -o ./assets/css/style.css -w",
     "build": "node-sass --include-path css ./assets/css/style.css ./assets/css/style.css --output-style compressed",
-    "autoprefix": "postcss ./css/style.css -u autoprefixer -o ./css/style.css -w"
+    "autoprefix": "postcss ./css/style.css -u autoprefixer -o ./css/style.css -w",
+    "format": "prettier --write '**/*.{html,php,css,scss,js,json,md}' & prettier-eslint --write '**/*.js'"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.0.2",
+    "eslint-config-google": "^0.14.0",
     "node-sass": "^5.0.0",
     "postcss": "^8.1.9",
-    "postcss-cli": "^8.3.0"
+    "postcss-cli": "^8.3.0",
+    "prettier": "^2.2.1",
+    "prettier-eslint": "^12.0.0",
+    "prettier-eslint-cli": "^5.0.0"
   },
   "browserslist": [
     "last 2 versions",
