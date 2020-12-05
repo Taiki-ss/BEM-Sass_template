@@ -1,5 +1,5 @@
 {
-  "name": "このプロジェクトネームを入れる",
+  "name": "template_copy",
   "version": "1.0.0",
   "description": "このプロジェクトの説明を入れる",
   "main": "index.js",
@@ -16,6 +16,7 @@
   "dependencies": {
     "autoprefixer": "^10.0.2",
     "eslint-config-google": "^0.14.0",
+    "module_name": "^1.0.0",
     "node-sass": "^5.0.0",
     "postcss": "^8.1.9",
     "postcss-cli": "^8.3.0",
