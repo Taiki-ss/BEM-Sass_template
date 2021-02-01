@@ -11,6 +11,9 @@
 
   &>* {
     width: calc((100% - #{$mr} * #{$margin-num}) / #{$num});
+    &:nth-child(#{$num}n){
+      margin-right: 0;
+    }
     &:not(:nth-child(#{$num}n)){
       margin-right: $mr;
     }
